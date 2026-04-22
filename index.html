@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Jackline Imbuhila Amunga</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<!-- Devicons for real skill logos -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ocean:#003d52;
+  --deep:#001a24;
+  --wave:#00667a;
+  --foam:#e8f7f9;
+  --tide:#b8dde3;
+  --coral:#e8705a;
+  --sand:#f7f1e8;
+  --gold:#d4a843;
+  --pearl:#fdfaf5;
+  --ink:#0a1628;
+  --mist:rgba(255,255,255,.06);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Outfit',sans-serif;background:var(--pearl);color:var(--ink);overflow-x:hidden;cursor:none}
+
+/* CUSTOM CURSOR */
+.cursor{position:fixed;width:10px;height:10px;background:var(--coral);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s;mix-blend-mode:multiply}
+.cursor-ring{position:fixed;width:36px;height:36px;border:1px solid var(--coral);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .15s ease;opacity:.6}
+.cursor-ring.hov{width:54px;height:54px;opacity:.3}
+
+/* ═══ NAV ═══ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 4rem;height:64px;
+  transition:background .4s,backdrop-filter .4s;
+}
+nav.scrolled{background:rgba(0,29,36,.94);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,168,67,.15)}
+.nav-brand{
+  font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;
+  color:#fff;text-decoration:none;letter-spacing:.02em;
+  display:flex;align-items:center;gap:.6rem;flex-shrink:0;
+}
+.nav-brand .dot{width:7px;height:7px;background:var(--coral);border-radius:50%;animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.7)}}
+.nav-links{display:flex;list-style:none;gap:.2rem}
+.nav-links a{
+  padding:.5rem 1rem;font-size:.72rem;font-weight:500;letter-spacing:.1em;
+  text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;
+  border-radius:100px;transition:all .25s;position:relative;white-space:nowrap;
+}
+.nav-links a::after{content:'';position:absolute;bottom:4px;left:50%;width:0;height:1px;background:var(--coral);transition:all .3s;transform:translateX(-50%)}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{width:60%}
+.nav-cv-btn{
+  display:flex;align-items:center;gap:.5rem;flex-shrink:0;
+  padding:.55rem 1.4rem;
+  background:linear-gradient(135deg,var(--coral),#c75e46);
+  color:#fff;font-size:.7rem;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;text-decoration:none;border-radius:100px;
+  box-shadow:0 4px 20px rgba(232,112,90,.35);
+  transition:all .3s;white-space:nowrap;
+}
+.nav-cv-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(232,112,90,.5)}
+.nav-cv-btn svg{width:13px;height:13px;fill:#fff;flex-shrink:0}
+.ham{display:none;flex-direction:column;gap:5px;cursor:none;background:none;border:none;padding:4px;flex-shrink:0}
+.ham span{width:24px;height:2px;background:#fff;transition:all .3s;display:block}
+
+/* ═══ HERO ═══ */
+.hero{
+  min-height:100vh;display:grid;grid-template-columns:1fr 1fr;
+  position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:linear-gradient(160deg,var(--deep) 0%,var(--ocean) 50%,#005a70 100%);
+  z-index:0;
+}
+.hero-bg::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 80%,rgba(0,102,122,.6) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 40% at 80% 20%,rgba(232,112,90,.08) 0%,transparent 60%);
+}
+.wave-lines{position:absolute;bottom:0;left:0;right:0;z-index:1;opacity:.12}
+.hero-content{
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:9rem 4rem 12rem 6rem;
+  grid-column:1;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:.8rem;
+  font-size:.68rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--coral);margin-bottom:2rem;
+}
+.hero-eyebrow::before{content:'';width:2.5rem;height:1px;background:var(--coral);flex-shrink:0}
+.hero-h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3.5rem,5.5vw,6.5rem);
+  font-weight:900;line-height:.95;
+  color:#fff;letter-spacing:-.02em;
+  margin-bottom:1.2rem;
+}
+.hero-h1 .italic{font-style:italic;color:var(--tide)}
+.hero-h1 .outline{
+  -webkit-text-stroke:1px rgba(255,255,255,.35);
+  color:transparent;
+}
+.hero-role{
+  font-size:.82rem;font-weight:300;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.45);margin-bottom:2.5rem;
+  display:flex;align-items:center;gap:1rem;
+}
+.hero-role::after{content:'';width:4rem;height:1px;background:rgba(255,255,255,.2);flex-shrink:0}
+.hero-tagline{
+  font-size:1rem;font-weight:300;line-height:1.85;
+  color:rgba(255,255,255,.68);max-width:400px;margin-bottom:3rem;
+}
+.hero-tagline strong{color:rgba(255,255,255,.92);font-weight:500}
+.hero-actions{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin-bottom:3rem}
+.btn-wave{
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding:.9rem 2.2rem;
+  background:linear-gradient(135deg,var(--coral),#c75e46);
+  color:#fff;font-size:.75rem;font-weight:600;letter-spacing:.08em;
+  text-decoration:none;border-radius:100px;
+  box-shadow:0 6px 24px rgba(232,112,90,.4);
+  transition:all .3s;
+}
+.btn-wave:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(232,112,90,.5)}
+.btn-wave svg{width:14px;height:14px;fill:#fff}
+.btn-line{
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding:.9rem 2.2rem;
+  background:transparent;color:rgba(255,255,255,.7);
+  font-size:.75rem;font-weight:500;letter-spacing:.08em;
+  text-decoration:none;border:1px solid rgba(255,255,255,.2);border-radius:100px;
+  transition:all .3s;
+}
+.btn-line:hover{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.4)}
+.btn-line svg{width:14px;height:14px;fill:currentColor}
+
+/* floating stat cards — positioned INSIDE hero-content flow */
+.hero-float-cards{
+  display:flex;gap:1rem;flex-wrap:wrap;
+}
+.hero-float-card{
+  background:rgba(255,255,255,.07);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:.75rem;
+  padding:1rem 1.5rem;
+  text-align:center;
+  animation:float 4s ease-in-out infinite;
+  min-width:90px;
+}
+.hero-float-card:nth-child(2){animation-delay:-.8s}
+.hero-float-card:nth-child(3){animation-delay:-1.6s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.hfc-num{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;color:#fff;line-height:1}
+.hfc-lbl{font-size:.58rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:.3rem}
+
+/* hero photo side */
+.hero-photo{
+  position:relative;z-index:2;grid-column:2;
+  display:flex;align-items:flex-end;justify-content:center;
+  overflow:hidden;
+}
+.hero-photo-img{
+  width:100%;height:100%;object-fit:cover;object-position:top center;
+  display:block;opacity:.88;
+}
+.hero-photo::before{
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(to right,var(--deep) 0%,transparent 20%),
+    linear-gradient(to top,var(--deep) 0%,transparent 40%);
+  z-index:1;pointer-events:none;
+}
+.hero-photo-tag{
+  position:absolute;top:6rem;right:2rem;z-index:3;
+  background:var(--gold);color:var(--deep);
+  font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  padding:.5rem 1.1rem;border-radius:100px;
+  writing-mode:vertical-rl;text-orientation:mixed;
+}
+.scroll-hint{
+  position:absolute;bottom:2.5rem;right:3rem;z-index:3;
+  display:flex;align-items:center;gap:.8rem;
+  font-size:.65rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;
+  color:rgba(255,255,255,.3);
+}
+.scroll-arrow{
+  width:28px;height:28px;border:1px solid rgba(255,255,255,.2);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  animation:bounce 2s ease infinite;
+}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+.scroll-arrow::after{content:'↓';font-size:.75rem;color:rgba(255,255,255,.4)}
+
+/* ═══ SECTION SHARED ═══ */
+.section-wrap{padding:8rem 6rem}
+.section-wrap.dark{background:var(--ocean);color:#fff}
+.section-wrap.charcoal{background:var(--deep);color:#fff}
+.section-wrap.sand{background:var(--sand)}
+.section-wrap.foam{background:var(--foam)}
+.section-wrap.pearl{background:var(--pearl)}
+section{scroll-margin-top:64px}
+
+.chip{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--coral);margin-bottom:1.2rem;
+}
+.chip::before{content:'';width:1.8rem;height:1.5px;background:var(--coral);flex-shrink:0}
+.chip.light{color:var(--tide)}.chip.light::before{background:var(--tide)}
+.chip.gold-c{color:var(--gold)}.chip.gold-c::before{background:var(--gold)}
+
+.display-heading{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.8rem,4.5vw,5rem);
+  font-weight:900;line-height:1;letter-spacing:-.02em;
+  margin-bottom:1.5rem;
+}
+.display-heading .ital{font-style:italic}
+.section-heading{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,3vw,3.2rem);
+  font-weight:700;line-height:1.1;letter-spacing:-.01em;
+  margin-bottom:1.2rem;
+}
+.body-text{font-size:.96rem;font-weight:300;line-height:1.85}
+
+/* ═══ ABOUT ═══ */
+#about .about-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:6rem;align-items:start}
+.about-visual{
+  position:relative;
+  background:linear-gradient(135deg,var(--ocean),var(--wave));
+  border-radius:1.5rem;padding:3rem;overflow:hidden;
+}
+.about-visual::before{
+  content:'"';position:absolute;top:-1rem;right:1.5rem;
+  font-family:'Playfair Display',serif;font-size:12rem;
+  color:rgba(255,255,255,.06);line-height:1;pointer-events:none;
+}
+.about-quote-text{
+  font-family:'Playfair Display',serif;font-size:1.2rem;
+  font-weight:400;font-style:italic;color:#fff;line-height:1.65;
+  position:relative;z-index:1;
+}
+.about-quote-attr{
+  margin-top:1.5rem;font-size:.72rem;font-weight:600;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--tide);position:relative;z-index:1;
+}
+.about-stat-strip{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  margin-top:1.5rem;border-top:1px solid rgba(255,255,255,.1);padding-top:1.5rem;
+  gap:.5rem;position:relative;z-index:1;
+}
+.as-item{text-align:center}
+.as-num{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;color:#fff;line-height:1}
+.as-lbl{font-size:.6rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:.3rem}
+.about-body p{font-size:.97rem;font-weight:300;line-height:1.85;color:var(--wave);margin-bottom:1.2rem}
+.about-body p strong{color:var(--ink);font-weight:600}
+.pillar-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.pillar-card{
+  padding:1.5rem;border-radius:.75rem;
+  background:linear-gradient(135deg,rgba(0,61,82,.04),rgba(0,102,122,.06));
+  border:1px solid rgba(0,102,122,.12);transition:all .3s;
+}
+.pillar-card:hover{transform:translateY(-3px);border-color:rgba(0,102,122,.3);box-shadow:0 12px 30px rgba(0,61,82,.08)}
+.pillar-icon{font-size:1.4rem;margin-bottom:.7rem}
+.pillar-name{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ocean);margin-bottom:.4rem}
+.pillar-card p{font-size:.82rem;font-weight:300;line-height:1.6;color:var(--wave)}
+
+/* ═══ EXPERIENCE ═══ */
+#experience .exp-layout{display:grid;grid-template-columns:260px 1fr;gap:5rem;align-items:start}
+.exp-sidebar-col{
+  position:sticky;top:80px;
+}
+.exp-sidebar-col .chip{color:var(--tide)}
+.exp-sidebar-col .chip::before{background:var(--tide)}
+.exp-big-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,2.5vw,3rem);font-weight:900;color:#fff;
+  line-height:1.05;letter-spacing:-.02em;margin-top:.8rem;
+  /* Never break the word */
+  word-break:keep-all;overflow-wrap:normal;
+}
+.exp-big-title .ital{font-style:italic;color:var(--tide)}
+.exp-sidebar-desc{font-size:.9rem;font-weight:300;line-height:1.8;color:rgba(255,255,255,.45);margin-top:1.5rem}
+.yrs-badge{
+  display:inline-block;margin-top:2rem;
+  background:var(--coral);color:#fff;
+  font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  padding:.6rem 1.2rem;border-radius:100px;
+}
+.tl{display:flex;flex-direction:column;position:relative}
+.tl::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;
+  width:1px;background:linear-gradient(to bottom,var(--coral),rgba(255,255,255,.05));
+}
+.tl-entry{
+  padding:2.5rem 0 2.5rem 2.5rem;
+  border-bottom:1px solid rgba(255,255,255,.05);
+  position:relative;transition:padding-left .3s;
+}
+.tl-entry:last-child{border-bottom:none}
+.tl-entry::before{
+  content:'';position:absolute;left:-4.5px;top:3rem;
+  width:10px;height:10px;border-radius:50%;
+  background:var(--deep);border:2px solid var(--coral);transition:all .3s;
+}
+.tl-entry:hover{padding-left:3rem}
+.tl-entry:hover::before{background:var(--coral);transform:scale(1.3)}
+.tl-meta{display:flex;align-items:center;gap:.8rem;margin-bottom:.5rem;flex-wrap:wrap}
+.tl-period{
+  font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--coral);background:rgba(232,112,90,.12);
+  padding:.3rem .8rem;border-radius:100px;white-space:nowrap;
+}
+.tl-company{font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--tide)}
+.tl-title{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:#fff;margin-bottom:.7rem;letter-spacing:-.01em}
+.tl-pts{list-style:none;display:flex;flex-direction:column;gap:.35rem}
+.tl-pts li{font-size:.85rem;font-weight:300;color:rgba(255,255,255,.5);line-height:1.6;padding-left:1.2rem;position:relative}
+.tl-pts li::before{content:'→';position:absolute;left:0;color:var(--tide);font-size:.75rem;top:.05rem}
+
+/* ═══ PROJECTS ═══ */
+.proj-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:4rem}
+.proj-intro-text p{font-size:.97rem;font-weight:300;line-height:1.85;color:var(--wave)}
+.proj-cinema{
+  background:var(--deep);border-radius:1.5rem;overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,.2);transition:transform .5s;
+}
+.proj-cinema:hover{transform:scale(1.005)}
+/* FIXED: stacked layout to avoid any overlap */
+.proj-cinema-top{display:grid;grid-template-columns:55% 45%;min-height:460px}
+.proj-screen{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--ocean),#004a5c);
+  min-height:460px;
+}
+.proj-screen-iframe{position:absolute;inset:0;overflow:hidden;z-index:0}
+.proj-screen-iframe iframe{
+  width:172%;height:172%;border:none;
+  transform:scale(.58);transform-origin:top left;
+  display:block;
+}
+/* gradient fades iframe edge into panel — no text overlap */
+.proj-screen::after{
+  content:'';position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(to right,transparent 50%,var(--deep) 100%),
+    linear-gradient(to bottom,rgba(0,26,36,.1) 0%,transparent 40%,rgba(0,26,36,.7) 85%,rgba(0,26,36,.9) 100%);
+  pointer-events:none;
+}
+/* live badge: centered at bottom of screen, clear of iframe content */
+.proj-screen .live-badge{
+  position:absolute;
+  bottom:1.6rem;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:20;
+  display:flex;align-items:center;gap:.5rem;
+  background:rgba(0,15,10,.82);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(0,255,150,.55);
+  color:#00ff96;font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  padding:.5rem 1.3rem;border-radius:100px;
+  box-shadow:0 0 18px rgba(0,255,150,.25);
+  white-space:nowrap;
+}
+.live-dot{width:7px;height:7px;background:#00ff96;border-radius:50%;animation:blink 1.5s infinite;flex-shrink:0}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+/* info panel — fills column, no absolute positioning */
+.proj-info-panel{
+  padding:2.8rem 2.5rem;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;z-index:2;/* above iframe */
+  background:var(--deep);/* solid bg so nothing bleeds through */
+}
+.proj-tag{font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--tide);margin-bottom:.8rem}
+.proj-name{
+  font-family:'Playfair Display',serif;font-size:2rem;
+  font-weight:900;color:#fff;line-height:1.1;letter-spacing:-.02em;margin-bottom:1.2rem;
+}
+.proj-name .ital{font-style:italic;color:var(--tide)}
+.proj-desc-text{font-size:.86rem;font-weight:300;line-height:1.8;color:rgba(255,255,255,.5);margin-bottom:1.8rem}
+.proj-kpis{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:2rem}
+.kpi{padding:1rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:.5rem;text-align:center}
+.kpi-n{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;color:var(--tide)}
+.kpi-l{font-size:.58rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:.2rem}
+.visit-link{
+  display:inline-flex;align-items:center;gap:.6rem;
+  color:var(--coral);font-size:.75rem;font-weight:600;letter-spacing:.08em;
+  text-decoration:none;
+  padding:.7rem 1.5rem;background:rgba(232,112,90,.1);border:1px solid rgba(232,112,90,.2);border-radius:100px;
+  transition:all .3s;width:fit-content;
+}
+.visit-link:hover{background:rgba(232,112,90,.2);transform:translateX(4px)}
+.visit-link svg{width:13px;height:13px;fill:currentColor}
+.pillars-band{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.06)}
+.pillar-band-item{padding:2.5rem;border-right:1px solid rgba(255,255,255,.06);transition:background .3s}
+.pillar-band-item:last-child{border-right:none}
+.pillar-band-item:hover{background:rgba(255,255,255,.03)}
+.pbi-icon{font-size:1.8rem;margin-bottom:.8rem}
+.pbi-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:.5rem}
+.pbi-text{font-size:.8rem;font-weight:300;line-height:1.7;color:rgba(255,255,255,.42)}
+
+/* achievements */
+.ach-section{padding:6rem;background:linear-gradient(135deg,var(--ocean) 0%,#004557 100%);position:relative;overflow:hidden}
+.ach-section::before{
+  content:'IMPACT';position:absolute;right:-2rem;bottom:-1rem;
+  font-family:'Playfair Display',serif;font-size:12rem;font-weight:900;
+  color:rgba(255,255,255,.025);letter-spacing:.1em;pointer-events:none;line-height:1;
+}
+.ach-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3.5rem}
+.ach-item{
+  padding:2.5rem;background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.07);border-radius:1rem;
+  transition:all .35s;position:relative;overflow:hidden;
+}
+.ach-item::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(to right,var(--coral),transparent);
+  transform:scaleX(0);transform-origin:left;transition:transform .4s;
+}
+.ach-item:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.15)}
+.ach-item:hover::before{transform:scaleX(1)}
+.ach-emoji{font-size:2rem;margin-bottom:1rem}
+.ach-cat-label{font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);margin-bottom:.4rem}
+.ach-heading{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:.6rem}
+.ach-body{font-size:.83rem;font-weight:300;line-height:1.72;color:rgba(255,255,255,.48)}
+
+/* case study */
+.cs-section{padding:6rem;background:var(--sand)}
+.cs-inner{display:grid;grid-template-columns:1fr 1.6fr;gap:4rem;margin-top:3.5rem;align-items:start}
+.cs-left{background:linear-gradient(160deg,var(--deep),var(--ocean));border-radius:1rem;padding:2.5rem;position:sticky;top:80px}
+.cs-label{font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+.cs-val{font-size:.88rem;font-weight:300;line-height:1.7;color:rgba(255,255,255,.65);margin-bottom:1.5rem}
+.cs-right{display:flex;flex-direction:column;gap:2rem}
+.cs-block-title{
+  font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ocean);
+  padding-left:.8rem;border-left:3px solid var(--coral);margin-bottom:.7rem;
+}
+.cs-block-body p,.cs-block-body li{font-size:.92rem;font-weight:300;line-height:1.8;color:var(--wave)}
+.cs-block-body ul{list-style:none;padding-left:0}
+.cs-block-body li{padding-left:1.3rem;position:relative;margin-bottom:.4rem}
+.cs-block-body li::before{content:'◆';position:absolute;left:0;color:var(--coral);font-size:.5rem;top:.35rem}
+.outcome-card{padding:1.5rem 2rem;background:linear-gradient(135deg,var(--ocean),var(--wave));border-radius:.75rem;margin-top:.8rem}
+.outcome-card p{color:rgba(255,255,255,.88)!important;font-size:.88rem!important;font-weight:300}
+
+/* collab */
+.collab-section{padding:6rem;background:var(--foam)}
+.collab-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3.5rem}
+.collab-card{
+  padding:2rem;background:#fff;border-radius:1rem;
+  border:1px solid rgba(0,102,122,.1);text-align:center;transition:all .35s;
+}
+.collab-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,61,82,.1);border-color:rgba(0,102,122,.3)}
+.collab-icon{font-size:2.2rem;margin-bottom:1rem}
+.collab-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--ocean);margin-bottom:.5rem}
+.collab-desc{font-size:.78rem;font-weight:300;line-height:1.6;color:var(--wave)}
+
+/* ═══ SKILLS ═══ */
+.skills-layout{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:end;margin-bottom:4rem}
+.skills-intro-text p{font-size:.97rem;font-weight:300;line-height:1.85;color:rgba(255,255,255,.55)}
+.skill-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.skill-card{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);
+  border-radius:1rem;padding:2rem;transition:all .35s;position:relative;overflow:hidden;
+}
+.skill-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(to right,var(--coral),var(--tide));
+  transform:scaleX(0);transform-origin:left;transition:transform .4s;
+}
+.skill-card:hover{background:rgba(255,255,255,.06);transform:translateY(-4px)}
+.skill-card:hover::after{transform:scaleX(1)}
+.skill-card-title{
+  font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;
+  color:#fff;margin-bottom:1.4rem;padding-bottom:.9rem;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.skill-logos-row{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:1.2rem;align-items:flex-end}
+.sli{display:flex;flex-direction:column;align-items:center;gap:.35rem}
+.sli i{font-size:2rem;display:block}
+.sli span{font-size:.58rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.42);white-space:nowrap}
+.s-icon-em{width:32px;height:32px;border-radius:.4rem;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+
+/* REAL BRAND COLOURS for devicons */
+.devicon-microsoftword-plain{color:#2b579a}
+.devicon-microsoftexcel-plain{color:#217346}
+.devicon-microsoftpowerpoint-plain{color:#d24726}
+.devicon-google-plain{color:#4285f4}
+.devicon-linkedin-plain{color:#0a66c2}
+.devicon-zoom-plain{color:#2d8cff}
+/* LinkedIn custom SVG */
+.linkedin-icon{
+  width:32px;height:32px;border-radius:6px;
+  background:#0a66c2;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.linkedin-icon svg{width:18px;height:18px;fill:#fff}
+/* Zoom custom */
+.zoom-icon{
+  width:32px;height:32px;border-radius:6px;
+  background:#2d8cff;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.zoom-icon svg{width:20px;height:14px;fill:#fff}
+/* Word icon */
+.word-icon{
+  width:32px;height:32px;border-radius:5px;
+  background:#2b579a;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.word-icon svg{width:20px;height:20px;fill:#fff}
+/* Excel icon */
+.excel-icon{
+  width:32px;height:32px;border-radius:5px;
+  background:#217346;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.excel-icon svg{width:20px;height:20px;fill:#fff}
+/* PPT icon */
+.ppt-icon{
+  width:32px;height:32px;border-radius:5px;
+  background:#d24726;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.ppt-icon svg{width:20px;height:20px;fill:#fff}
+/* Outlook icon */
+.outlook-icon{
+  width:32px;height:32px;border-radius:5px;
+  background:#0078d4;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.outlook-icon svg{width:20px;height:20px;fill:#fff}
+/* Google Drive icon */
+.gdrive-icon{
+  width:32px;height:32px;border-radius:5px;
+  background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  border:1px solid rgba(255,255,255,.1);
+}
+
+.tags-row{display:flex;flex-wrap:wrap;gap:.4rem}
+.tag{
+  font-size:.68rem;font-weight:400;
+  padding:.28rem .75rem;
+  background:rgba(255,255,255,.06);color:rgba(255,255,255,.55);
+  border:1px solid rgba(255,255,255,.07);border-radius:100px;letter-spacing:.02em;
+}
+
+/* ═══ EDUCATION ═══ */
+.edu-layout{display:grid;grid-template-columns:1fr 1.5fr;gap:6rem;align-items:center}
+.edu-left p{font-size:.97rem;font-weight:300;line-height:1.85;color:var(--wave);margin-top:1rem}
+.edu-cards{display:flex;flex-direction:column;gap:1.2rem}
+.edu-card{
+  display:grid;grid-template-columns:80px 1fr;gap:1.5rem;
+  align-items:center;padding:1.8rem 2rem;
+  background:#fff;border-radius:1rem;
+  border:1px solid rgba(0,102,122,.1);
+  box-shadow:0 2px 20px rgba(0,61,82,.05);transition:all .3s;
+}
+.edu-card:hover{transform:translateX(6px);border-color:rgba(0,102,122,.25);box-shadow:0 8px 30px rgba(0,61,82,.1)}
+.edu-year-badge{
+  width:70px;height:70px;border-radius:.75rem;
+  background:linear-gradient(135deg,var(--ocean),var(--wave));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;
+  flex-shrink:0;
+}
+.edu-yr{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;line-height:1}
+.edu-era{font-size:.55rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:.2rem}
+.edu-inst{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--wave);margin-bottom:.3rem}
+.edu-deg{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--ink)}
+.edu-period{font-size:.76rem;font-weight:300;color:var(--wave);margin-top:.2rem}
+
+/* ═══ CONTACT ═══ */
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.contact-left h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.2rem,3.5vw,3.5rem);font-weight:900;
+  color:#fff;line-height:1.05;letter-spacing:-.02em;margin:1rem 0 1.5rem;
+  word-break:keep-all;overflow-wrap:normal;
+}
+.contact-left h2 .ital{font-style:italic;color:var(--tide)}
+.contact-desc{font-size:.97rem;font-weight:300;line-height:1.85;color:rgba(255,255,255,.52);margin-bottom:2.5rem}
+.dl-btn{
+  display:inline-flex;align-items:center;gap:.7rem;
+  padding:1.1rem 2.5rem;
+  background:linear-gradient(135deg,var(--coral),#c05142);
+  color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  text-decoration:none;border-radius:100px;
+  box-shadow:0 8px 28px rgba(232,112,90,.4);transition:all .35s;
+}
+.dl-btn:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(232,112,90,.55)}
+.dl-btn svg{width:15px;height:15px;fill:#fff}
+.contact-items{display:flex;flex-direction:column;gap:1.4rem}
+.ci{
+  display:flex;align-items:center;gap:1.3rem;
+  padding:1.4rem 1.8rem;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);
+  border-radius:.875rem;transition:all .3s;
+}
+.ci:hover{background:rgba(255,255,255,.07);transform:translateX(5px)}
+.ci-icon{width:44px;height:44px;border-radius:.6rem;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.ci-label{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.2rem}
+.ci-val{font-size:.92rem;font-weight:300;color:rgba(255,255,255,.75);text-decoration:none;transition:color .2s;display:block}
+.ci-val:hover{color:#fff}
+
+/* ═══ FOOTER ═══ */
+footer{
+  padding:2rem 6rem;background:var(--ink);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
+  border-top:1px solid rgba(255,255,255,.04);
+}
+.footer-brand{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:rgba(255,255,255,.3);font-style:italic}
+footer p{font-size:.72rem;color:rgba(255,255,255,.22);letter-spacing:.05em}
+
+/* ═══ SCROLL REVEAL ═══ */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+.reveal-delay-4{transition-delay:.4s}
+
+/* ═══ RESPONSIVE — COMPREHENSIVE ═══ */
+
+/* Large monitors (1400px+) — give more breathing room */
+@media(min-width:1400px){
+  .section-wrap{padding:9rem 8rem}
+  .ach-section,.cs-section,.collab-section{padding:7rem 8rem}
+  footer{padding:2rem 8rem}
+  .hero-content{padding:9rem 5rem 12rem 8rem}
+  .hero-h1{font-size:7rem}
+  nav{padding:0 5rem}
+}
+
+/* Standard desktop (1200–1399px) */
+@media(max-width:1399px) and (min-width:1201px){
+  nav{padding:0 3rem}
+}
+
+/* Laptop (1100–1200px) — compress nav slightly */
+@media(max-width:1200px){
+  nav{padding:0 2rem}
+  .nav-links a{padding:.5rem .65rem;font-size:.65rem;letter-spacing:.07em}
+  .hero-content{padding:9rem 3.5rem 12rem 4.5rem}
+}
+
+/* Tablet landscape / small laptop (1100px) — stack hero */
+@media(max-width:1100px){
+  .hero{grid-template-columns:1fr}
+  .hero-photo{min-height:55vw;grid-column:1;order:-1}/* photo on top */
+  .hero-content{padding:5rem 3rem 5rem;order:0}
+  .hero-h1{font-size:clamp(3rem,8vw,5rem)}
+  .hero-float-cards{margin-top:1rem}
+
+  .section-wrap{padding:6rem 3rem}
+  .ach-section,.cs-section,.collab-section{padding:6rem 3rem}
+  footer{padding:2rem 3rem}
+
+  #about .about-layout{grid-template-columns:1fr;gap:3rem}
+  .contact-layout{grid-template-columns:1fr;gap:3rem}
+
+  #experience .exp-layout{grid-template-columns:1fr;gap:3rem}
+  .exp-sidebar-col{position:relative;top:0;display:flex;flex-direction:column;align-items:flex-start}
+
+  /* Project card stacks vertically when narrow */
+  .proj-cinema-top{
+    grid-template-columns:1fr;
+    min-height:auto;
+  }
+  .proj-screen{min-height:340px}
+  /* on stack, fade bottom not right */
+  .proj-screen::after{
+    background:
+      linear-gradient(to bottom,transparent 55%,var(--deep) 100%),
+      linear-gradient(to right,transparent 80%,var(--deep) 100%);
+  }
+  .proj-info-panel{min-height:auto}
+
+  .pillars-band{grid-template-columns:1fr 1fr}
+  .ach-grid-3{grid-template-columns:1fr 1fr}
+  .skill-cards{grid-template-columns:1fr 1fr}
+  .edu-layout{grid-template-columns:1fr;gap:3rem}
+  .collab-cards{grid-template-columns:1fr 1fr}
+  .skills-layout{grid-template-columns:1fr;gap:2rem}
+  .proj-intro{grid-template-columns:1fr;margin-bottom:3rem}
+}
+
+/* iPad portrait / large phone landscape (768px) */
+@media(max-width:900px){
+  .hero-photo{min-height:70vw}
+  .hero-h1{font-size:clamp(2.8rem,9vw,4.5rem)}
+  .about-stat-strip{grid-template-columns:repeat(2,1fr);gap:1rem}
+
+  .collab-cards{grid-template-columns:1fr 1fr}
+  .ach-grid-3{grid-template-columns:1fr}
+  .pillars-band{grid-template-columns:1fr}
+  .cs-inner{grid-template-columns:1fr;gap:2rem}
+  .cs-left{position:relative;top:0}
+  .pillar-row{grid-template-columns:1fr}
+}
+
+/* Phone (768px and below) */
+@media(max-width:768px){
+  nav{padding:0 1.2rem}
+  .ham{display:flex}
+  .nav-links{
+    display:none;position:fixed;top:64px;left:0;right:0;
+    background:rgba(0,26,36,.98);flex-direction:column;padding:1rem 0;
+    backdrop-filter:blur(20px);z-index:499;
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{height:auto;padding:.9rem 1.5rem;border-radius:0;font-size:.8rem}
+  .nav-cv-btn{display:none}
+
+  .section-wrap{padding:4.5rem 1.4rem}
+  .ach-section,.cs-section,.collab-section{padding:4.5rem 1.4rem}
+  footer{padding:1.5rem 1.4rem;flex-direction:column;text-align:center;gap:.5rem}
+
+  .hero-content{padding:4rem 1.4rem 4rem}
+  .hero-photo{min-height:80vw}
+  .hero-h1{font-size:clamp(2.6rem,11vw,4rem);line-height:.98}
+  .hero-actions{flex-direction:column;align-items:flex-start}
+  .btn-wave,.btn-line{width:100%;justify-content:center}
+  .hero-float-cards{gap:.6rem}
+  .hero-float-card{padding:.8rem 1rem;min-width:80px}
+  .hfc-num{font-size:1.6rem}
+
+  .display-heading{font-size:clamp(2.2rem,8vw,3.5rem)}
+  .section-heading{font-size:clamp(1.6rem,6vw,2.2rem)}
+  .contact-left h2{font-size:clamp(2rem,7vw,2.8rem)!important}
+
+  .skill-cards{grid-template-columns:1fr}
+  .collab-cards{grid-template-columns:1fr 1fr}
+  .edu-layout{grid-template-columns:1fr}
+  .proj-kpis{grid-template-columns:1fr 1fr}
+  .proj-screen{min-height:260px}
+  .proj-info-panel{padding:2rem 1.4rem}
+
+  #experience .exp-layout{gap:2rem}
+  .tl::before{left:0}
+  .tl-entry{padding:2rem 0 2rem 2rem}
+  .tl-entry::before{left:-4px;top:2.5rem}
+
+  .about-visual{padding:2rem}
+  .about-stat-strip{grid-template-columns:repeat(2,1fr)}
+  .as-num{font-size:1.6rem}
+
+  .edu-card{grid-template-columns:64px 1fr;gap:1rem;padding:1.4rem}
+  .edu-year-badge{width:58px;height:58px}
+  .edu-yr{font-size:1rem}
+
+  .ci{padding:1.1rem 1.2rem;gap:1rem}
+  .ci-icon{width:38px;height:38px;font-size:.95rem}
+
+  .ach-grid-3{grid-template-columns:1fr}
+  .pillars-band{grid-template-columns:1fr}
+  .collab-cards{grid-template-columns:1fr}
+  .skills-layout{gap:1.5rem}
+  .pillar-row{grid-template-columns:1fr}
+}
+
+/* Small phones (375px and below) */
+@media(max-width:390px){
+  .hero-h1{font-size:2.4rem}
+  .hero-float-cards{flex-direction:column;gap:.5rem}
+  .hero-float-card{min-width:unset;width:100%;text-align:center;display:flex;align-items:center;gap:1rem;justify-content:center}
+  .hfc-lbl{margin-top:0}
+  .proj-kpis{grid-template-columns:1fr}
+  .collab-cards{grid-template-columns:1fr}
+  .about-stat-strip{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <a href="#" class="nav-brand">
+    <span class="dot"></span>Jackline Amunga
+  </a>
+  <ul class="nav-links" id="navlinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="Jackline Imbuhila Amunga CV Resume_260422_154811.pdf" download class="nav-cv-btn">
+    <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+    Download CV
+  </a>
+  <button class="ham" id="ham" onclick="document.getElementById('navlinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-bg">
+    <svg class="wave-lines" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,100 C240,60 480,140 720,100 C960,60 1200,140 1440,100 L1440,200 L0,200 Z" fill="white"/>
+      <path d="M0,130 C300,90 600,170 900,130 C1100,100 1300,150 1440,130 L1440,200 L0,200 Z" fill="white" opacity=".4"/>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Business Development · Blue Economy · Impact</div>
+    <h1 class="hero-h1">
+      Jackline<br>
+      <span class="italic">Imbuhila</span><br>
+      <span class="outline">Amunga</span>
+    </h1>
+    <div class="hero-role">BDR · Making Waves Initiative</div>
+    <p class="hero-tagline">
+      Driving <strong>inclusive growth</strong> in coastal communities through strategic partnerships, financial inclusion, and marine-based opportunities for women.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-wave">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM10 17l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        View My Work
+      </a>
+      <a href="Jackline Imbuhila Amunga CV Resume_260422_154811.pdf" download class="btn-line">
+        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+        Download CV
+      </a>
+    </div>
+    <div class="hero-float-cards">
+      <div class="hero-float-card">
+        <div class="hfc-num">15+</div>
+        <div class="hfc-lbl">Years Exp.</div>
+      </div>
+      <div class="hero-float-card">
+        <div class="hfc-num">18</div>
+        <div class="hfc-lbl">Women Groups</div>
+      </div>
+      <div class="hero-float-card">
+        <div class="hfc-num">11K</div>
+        <div class="hfc-lbl">Target 2030</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-photo">
+    <img class="hero-photo-img" src="images/jackline_profile.JPG" alt="Jackline Imbuhila Amunga"
+      onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#003d52 0%,#00667a 50%,#005a70 100%)'"/>
+    <div class="hero-photo-tag">Mombasa · Kenya</div>
+  </div>
+
+  <div class="scroll-hint">
+    Scroll<div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about" class="section-wrap pearl">
+  <div class="about-layout">
+    <div class="about-left reveal">
+      <div class="chip">About Me</div>
+      <h2 class="section-heading" style="color:var(--ocean)">Where industry <span style="font-style:italic">meets</span> community.</h2>
+      <div class="about-visual">
+        <p class="about-quote-text">"I work at the intersection of industry and community — designing programmes, building partnerships, and creating pathways for women to access skills, financing, and sustainable livelihoods within coastal ecosystems."</p>
+        <p class="about-quote-attr">— Jackline Imbuhila Amunga</p>
+        <div class="about-stat-strip">
+          <div class="as-item"><div class="as-num">18</div><div class="as-lbl">Groups</div></div>
+          <div class="as-item"><div class="as-num">11K</div><div class="as-lbl">Target</div></div>
+          <div class="as-item"><div class="as-num">10</div><div class="as-lbl">BMUs</div></div>
+          <div class="as-item"><div class="as-num">5+</div><div class="as-lbl">Countries</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="about-right reveal reveal-delay-2">
+      <div class="about-body">
+        <p>I am a <strong>Business Development professional</strong> in the marine industry, passionate about advancing women's participation in the blue economy. Through Making Waves, I bridge financial institutions and grassroots women's groups along Kenya's coastline — unlocking access to skills, financing, and marine-based livelihoods.</p>
+        <p>With 15+ years across <strong>hospitality, logistics, and business development</strong> spanning Kenya, Dubai and East Africa, I bring corporate rigour and community-first values to every engagement I lead.</p>
+      </div>
+      <div class="pillar-row">
+        <div class="pillar-card"><div class="pillar-icon">🤝</div><div class="pillar-name">Strategic Partnerships</div><p>Bridging financial institutions, CBOs and marine enterprises for lasting impact.</p></div>
+        <div class="pillar-card"><div class="pillar-icon">🏦</div><div class="pillar-name">Financial Inclusion</div><p>Connecting women to tailored financing and literacy programmes.</p></div>
+        <div class="pillar-card"><div class="pillar-icon">📈</div><div class="pillar-name">Business Development</div><p>Driving growth through digital marketing, CRM and lead strategy.</p></div>
+        <div class="pillar-card"><div class="pillar-icon">🌊</div><div class="pillar-name">Community Ecosystems</div><p>Working with fisheries groups, CBOs and policy actors for change.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EXPERIENCE ═══ -->
+<section id="experience" class="section-wrap charcoal">
+  <div class="exp-layout">
+    <div class="exp-sidebar-col reveal">
+      <div class="chip light">Career</div>
+      <div class="exp-big-title">Profes<span class="ital">sional</span></div>
+      <p class="exp-sidebar-desc">Aviation, luxury hospitality, logistics and business development — built across Kenya, Dubai and East Africa over 15+ years.</p>
+      <span class="yrs-badge">15+ Years</span>
+    </div>
+    <div class="tl reveal reveal-delay-1">
+      <div class="tl-entry">
+        <div class="tl-meta"><span class="tl-period">Jun 2023 – Present</span><span class="tl-company">Associated Vehicle Assemblers</span></div>
+        <div class="tl-title">Business Development Representative</div>
+        <ul class="tl-pts">
+          <li>Execute digital marketing campaigns: SEO/SEM, email, social media and display advertising</li>
+          <li>Drive lead generation and pipeline across multiple identified business areas</li>
+          <li>Compile and maintain CRM with prospective customer listings and follow-up tracking</li>
+          <li>Develop PR opportunities; support brand development and collateral maintenance</li>
+        </ul>
+      </div>
+      <div class="tl-entry">
+        <div class="tl-meta"><span class="tl-period">Feb 2021 – May 2023</span><span class="tl-company">Baobab Beach Resort &amp; Spa</span></div>
+        <div class="tl-title">Guest Relations Officer</div>
+        <ul class="tl-pts">
+          <li>Managed VIP guest arrivals, departures and special requirements to 5-star standards</li>
+          <li>Provided hotel information and coordinated all guest travel arrangements</li>
+          <li>Built long-term guest associations ensuring loyalty and repeat visits</li>
+        </ul>
+      </div>
+      <div class="tl-entry">
+        <div class="tl-meta"><span class="tl-period">May 2015 – Jul 2020</span><span class="tl-company">Hansol Logistics Kenya Limited</span></div>
+        <div class="tl-title">Administrative Officer</div>
+        <ul class="tl-pts">
+          <li>Managed day-to-day firm operations and coordination of all firm activities</li>
+          <li>Coordinated international travel: flights, insurance, visas and accommodation</li>
+          <li>Provided administrative and financial support ensuring smooth logistical execution</li>
+        </ul>
+      </div>
+      <div class="tl-entry">
+        <div class="tl-meta"><span class="tl-period">Jun 2012 – Dec 2014</span><span class="tl-company">Grosvenor House Hotel, Dubai</span></div>
+        <div class="tl-title">Hostess / Waitress</div>
+        <ul class="tl-pts">
+          <li>Delivered world-class hospitality at a leading 5-star luxury property in Dubai</li>
+          <li>Managed reservations, seating and VIP guest relations; resolved customer concerns</li>
+        </ul>
+      </div>
+      <div class="tl-entry">
+        <div class="tl-meta"><span class="tl-period">Jan 2015 – Mar 2015</span><span class="tl-company">Fly Dubai</span></div>
+        <div class="tl-title">Cabin Crew</div>
+        <ul class="tl-pts">
+          <li>Ensured passenger safety across international routes; pre-flight checks and emergency preparedness</li>
+          <li>Delivered excellent in-flight service to diverse international passengers</li>
+        </ul>
+      </div>
+      <div class="tl-entry">
+        <div class="tl-meta"><span class="tl-period">Jan 2010 – Apr 2012</span><span class="tl-company">Pelican Investigation Services</span></div>
+        <div class="tl-title">Personal Assistant / Receptionist</div>
+        <ul class="tl-pts">
+          <li>Executive-level support to senior management including diary and correspondence management</li>
+          <li>First point of contact for all client and stakeholder interactions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROJECTS ═══ -->
+<section id="projects" class="section-wrap pearl">
+  <div class="proj-intro reveal">
+    <div>
+      <div class="chip">Featured Work</div>
+      <h2 class="display-heading" style="color:var(--ocean)">Making <span class="ital" style="color:var(--wave)">Waves.</span></h2>
+    </div>
+    <div class="proj-intro-text">
+      <p>A coastal women's empowerment programme positioning women at the centre of Kenya's blue economy — addressing systemic barriers in skills, financing, and market access through strategic partnerships and community trust.</p>
+    </div>
+  </div>
+
+  <div class="proj-cinema reveal reveal-delay-1">
+    <div class="proj-cinema-top">
+      <div class="proj-screen">
+        <div class="live-badge"><span class="live-dot"></span>Live Dashboard</div>
+        <div class="proj-screen-iframe">
+          <iframe src="https://amungabrenda.github.io/making-waves-initiative-dashboard/" title="Making Waves Dashboard" scrolling="no" loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="proj-info-panel">
+        <div class="proj-tag">Blue Economy · Women's Empowerment · Financial Inclusion</div>
+        <div class="proj-name">Making <span class="ital">Waves</span> Initiative</div>
+        <p class="proj-desc-text">Partnering with Equity Group Holdings, Jomvu Women in Fisheries, and YEHU to create structured pathways where none existed before — from grassroots to institutions.</p>
+        <div class="proj-kpis">
+          <div class="kpi"><div class="kpi-n">18</div><div class="kpi-l">Women Groups</div></div>
+          <div class="kpi"><div class="kpi-n">11K</div><div class="kpi-l">Target 2030</div></div>
+          <div class="kpi"><div class="kpi-n">10</div><div class="kpi-l">Beach Units</div></div>
+          <div class="kpi"><div class="kpi-n">KES 1.5M</div><div class="kpi-l">Monthly Profit</div></div>
+        </div>
+        <a href="https://amungabrenda.github.io/making-waves-initiative-dashboard/" target="_blank" class="visit-link">
+          View Live Dashboard
+          <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="pillars-band">
+      <div class="pillar-band-item"><div class="pbi-icon">🌊</div><div class="pbi-title">Skills &amp; Capacity</div><p class="pbi-text">Training women in marine safety, fishing operations, and entrepreneurship.</p></div>
+      <div class="pillar-band-item"><div class="pbi-icon">🏦</div><div class="pbi-title">Financial Inclusion</div><p class="pbi-text">Bridging women to Equity Group Holdings for financing and literacy.</p></div>
+      <div class="pillar-band-item"><div class="pbi-icon">🐟</div><div class="pbi-title">Market Access</div><p class="pbi-text">Creating pathways into marine value chains and enterprise ownership.</p></div>
+      <div class="pillar-band-item"><div class="pbi-icon">🤝</div><div class="pbi-title">Partnerships</div><p class="pbi-text">NGOs, CBOs, institutions and policy actors collaborating for scale.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<div class="ach-section" id="achievements">
+  <div class="chip gold-c reveal">Key Traction</div>
+  <h2 class="display-heading reveal reveal-delay-1" style="color:#fff">Achievements<br><span class="ital" style="color:var(--tide)">&amp; Impact</span></h2>
+  <div class="ach-grid-3">
+    <div class="ach-item reveal reveal-delay-1"><div class="ach-emoji">📊</div><div class="ach-cat-label">Reach &amp; Engagement</div><div class="ach-heading">18 Women Groups Engaged</div><p class="ach-body">Engaged approximately 18 women's groups across Kenya's Coastal region, building deep relationships with CBOs and fisheries groups including Jomvu Women in Fisheries and YEHU.</p></div>
+    <div class="ach-item reveal reveal-delay-2"><div class="ach-emoji">🏦</div><div class="ach-cat-label">Strategic Partnership</div><div class="ach-heading">Equity Group Holdings</div><p class="ach-body">Initiated collaboration focused on financial literacy programmes, women-focused financing products, and long-term synergies supporting women in marine enterprises.</p></div>
+    <div class="ach-item reveal reveal-delay-3"><div class="ach-emoji">🌍</div><div class="ach-cat-label">Ecosystem Building</div><div class="ach-heading">Institutional Bridge</div><p class="ach-body">Positioned Making Waves as the critical bridge between financial institutions and grassroots women's groups — creating structured pathways where none existed before.</p></div>
+  </div>
+</div>
+
+<!-- CASE STUDY -->
+<div class="cs-section" id="case-study">
+  <div class="chip reveal">Case Study</div>
+  <h2 class="section-heading reveal reveal-delay-1" style="color:var(--ocean)">International Women's Day<br><span style="font-style:italic">Collaboration</span></h2>
+  <div class="cs-inner">
+    <div class="cs-left reveal">
+      <div class="cs-label">Objective</div>
+      <p class="cs-val">Empower women in coastal communities through financial literacy and marine industry exposure.</p>
+      <div class="cs-label">Partners</div>
+      <p class="cs-val">Equity Group Holdings<br>Jomvu Women in Fisheries</p>
+      <div class="cs-label">My Role</div>
+      <p class="cs-val">Initiated &amp; coordinated the partnership. Led engagement between stakeholders. Supported programme planning and execution.</p>
+    </div>
+    <div class="cs-right reveal reveal-delay-2">
+      <div>
+        <div class="cs-block-title">What Happened</div>
+        <div class="cs-block-body"><p>A landmark joint event bringing together a major financial institution and a coastal women's fisheries group — creating structured dialogue, financial literacy, and marine enterprise planning on International Women's Day.</p></div>
+      </div>
+      <div>
+        <div class="cs-block-title">Outcomes</div>
+        <div class="cs-block-body">
+          <ul>
+            <li>Successful joint event with strong community participation</li>
+            <li>Opened pathway for structured financial literacy programmes</li>
+            <li>Strengthened trust between financial institutions and grassroots women groups</li>
+            <li>Demonstrated Making Waves model as a replicable bridge framework</li>
+          </ul>
+          <div class="outcome-card"><p>This collaboration proved financial institutions are willing to engage coastal women — when the right intermediary creates the space and trust to do so.</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="cs-block-title">Next Steps</div>
+        <div class="cs-block-body">
+          <ul>
+            <li>Roll out targeted financial literacy training across 10 Beach Management Units</li>
+            <li>Explore financing models for boat acquisition and marine business development</li>
+            <li>Scale the model regionally across East and Central Africa</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COLLABORATION -->
+<div class="collab-section" id="collaborate">
+  <div class="chip reveal">Open To</div>
+  <h2 class="section-heading reveal reveal-delay-1" style="color:var(--ocean)">Collaboration<br><span style="font-style:italic">Opportunities</span></h2>
+  <div class="collab-cards">
+    <div class="collab-card reveal reveal-delay-1"><div class="collab-icon">🌍</div><div class="collab-name">NGOs &amp; Development</div><p class="collab-desc">Women empowerment, blue economy programmes, community-based pilots</p></div>
+    <div class="collab-card reveal reveal-delay-2"><div class="collab-icon">🏦</div><div class="collab-name">Financial Institutions</div><p class="collab-desc">Financial inclusion, women-focused financing and literacy programmes</p></div>
+    <div class="collab-card reveal reveal-delay-3"><div class="collab-icon">🏛️</div><div class="collab-name">Government &amp; Policy</div><p class="collab-desc">Blue economy policy design and coastal community advocacy</p></div>
+    <div class="collab-card reveal reveal-delay-4"><div class="collab-icon">🚢</div><div class="collab-name">Private Sector Marine</div><p class="collab-desc">Programme design, implementation partnerships, community pilots</p></div>
+  </div>
+</div>
+
+<!-- ═══ SKILLS ═══ -->
+<section id="skills" class="section-wrap charcoal">
+  <div class="skills-layout reveal">
+    <div>
+      <div class="chip light">Capabilities</div>
+      <h2 class="section-heading" style="color:#fff;letter-spacing:-.01em">Skills &amp;<br><span style="font-style:italic;color:var(--tide)">Expertise</span></h2>
+    </div>
+    <div class="skills-intro-text">
+      <p>A blend of business development muscle, administrative precision, and digital marketing capability — built across 15+ years and multiple industries in East Africa and the Middle East.</p>
+    </div>
+  </div>
+
+  <div class="skill-cards">
+    <!-- Business Development -->
+    <div class="skill-card reveal reveal-delay-1">
+      <div class="skill-card-title">Business Development</div>
+      <div class="skill-logos-row">
+        <div class="sli"><div class="s-icon-em" style="background:rgba(232,112,90,.15)">📈</div><span>Growth</span></div>
+        <div class="sli"><div class="s-icon-em" style="background:rgba(184,221,227,.1)">🤝</div><span>Partners</span></div>
+        <div class="sli"><div class="s-icon-em" style="background:rgba(212,168,67,.12)">🎯</div><span>Leads</span></div>
+        <div class="sli"><div class="s-icon-em" style="background:rgba(0,102,122,.2)">📊</div><span>CRM</span></div>
+      </div>
+      <div class="tags-row"><span class="tag">Lead Generation</span><span class="tag">CRM Management</span><span class="tag">Sales Strategy</span><span class="tag">Brand Development</span><span class="tag">PR &amp; Visibility</span></div>
+    </div>
+
+    <!-- Digital Marketing -->
+    <div class="skill-card reveal reveal-delay-2">
+      <div class="skill-card-title">Digital Marketing</div>
+      <div class="skill-logos-row">
+        <!-- LinkedIn real logo -->
+        <div class="sli">
+          <div class="linkedin-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </div>
+          <span>LinkedIn</span>
+        </div>
+        <div class="sli"><div class="s-icon-em" style="background:rgba(66,133,244,.15)">🔍</div><span>SEO/SEM</span></div>
+        <div class="sli"><div class="s-icon-em" style="background:rgba(232,112,90,.12)">📧</div><span>Email</span></div>
+        <div class="sli"><div class="s-icon-em" style="background:rgba(162,89,255,.12)">📱</div><span>Social</span></div>
+      </div>
+      <div class="tags-row"><span class="tag">SEO / SEM</span><span class="tag">Email Campaigns</span><span class="tag">Social Media</span><span class="tag">Display Ads</span><span class="tag">Analytics</span></div>
+    </div>
+
+    <!-- Microsoft Office -->
+    <div class="skill-card reveal reveal-delay-3">
+      <div class="skill-card-title">Microsoft Office Suite</div>
+      <div class="skill-logos-row">
+        <!-- MS Word -->
+        <div class="sli">
+          <div class="word-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.5 3h-15A1.5 1.5 0 003 4.5v15A1.5 1.5 0 004.5 21h15a1.5 1.5 0 001.5-1.5v-15A1.5 1.5 0 0019.5 3zm-3.563 13.5h-1.687l-1.5-5.813-1.5 5.813H9.563L7.5 7.5h1.688l1.312 5.813L12 7.5h1.5l1.5 5.813L16.313 7.5H18z"/></svg>
+          </div>
+          <span>Word</span>
+        </div>
+        <!-- MS Excel -->
+        <div class="sli">
+          <div class="excel-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21.17 3H7.83A.83.83 0 007 3.83v2.67H3.83A.83.83 0 003 7.33v9.34c0 .46.37.83.83.83H7v2.67c0 .46.37.83.83.83h13.34c.46 0 .83-.37.83-.83V3.83A.83.83 0 0021.17 3zM9.5 15.17L8 13.83l1.5-1.33L8 11.17l1.5-1.34 1.5 1.34 1.5-1.34 1.5 1.34-1.5 1.33 1.5 1.33-1.5 1.34-1.5-1.34z"/></svg>
+          </div>
+          <span>Excel</span>
+        </div>
+        <!-- MS PowerPoint -->
+        <div class="sli">
+          <div class="ppt-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.5 3h-15A1.5 1.5 0 003 4.5v15A1.5 1.5 0 004.5 21h15a1.5 1.5 0 001.5-1.5v-15A1.5 1.5 0 0019.5 3zm-6 9.75h-2.25V15H9.75V9h3.75a2.25 2.25 0 010 4.5v-.75z"/></svg>
+          </div>
+          <span>PowerPoint</span>
+        </div>
+        <!-- Outlook -->
+        <div class="sli">
+          <div class="outlook-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.88 12.04q0 .45-.11.87-.1.41-.33.74-.22.33-.58.52-.37.2-.87.2t-.85-.2q-.35-.21-.57-.55-.22-.33-.33-.75-.1-.42-.1-.86t.1-.87q.1-.43.34-.76.22-.34.59-.54.36-.2.87-.2t.86.2q.35.21.57.55.22.34.31.77.1.43.1.88zM24 12v9.38q0 .46-.33.8-.33.32-.8.32H7.13q-.46 0-.8-.33-.32-.33-.32-.8V18H1q-.41 0-.7-.3-.3-.29-.3-.7V7q0-.41.3-.7Q.58 6 1 6h6V2.55q0-.44.3-.75.3-.3.75-.3h12.9q.44 0 .75.3.3.3.3.75V10.85l1.24.72q.41.24.41.74z"/></svg>
+          </div>
+          <span>Outlook</span>
+        </div>
+      </div>
+      <div class="tags-row"><span class="tag">MS Word</span><span class="tag">MS Excel</span><span class="tag">PowerPoint</span><span class="tag">Outlook</span><span class="tag">Google Docs</span></div>
+    </div>
+
+    <!-- Tools & Collaboration -->
+    <div class="skill-card reveal reveal-delay-1">
+      <div class="skill-card-title">Tools &amp; Collaboration</div>
+      <div class="skill-logos-row">
+        <!-- Google Drive -->
+        <div class="sli">
+          <i class="devicon-google-plain" style="font-size:2rem"></i>
+          <span>G Suite</span>
+        </div>
+        <!-- Zoom real logo -->
+        <div class="sli">
+          <div class="zoom-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12c0 6.627-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0s12 5.373 12 12zm-6.508-4.555c-.227-.227-.522-.35-.832-.35H7.34c-.31 0-.605.123-.832.35-.227.227-.35.522-.35.832v5.457c0 .648.525 1.173 1.173 1.173h9.32c.648 0 1.173-.525 1.173-1.173V8.277c0-.31-.123-.605-.332-.832zM21 9.354l-3.494 2.203 3.494 2.189v-4.39z"/></svg>
+          </div>
+          <span>Zoom</span>
+        </div>
+        <div class="sli"><div class="s-icon-em" style="background:rgba(212,168,67,.12)">📅</div><span>Calendar</span></div>
+        <div class="sli"><div class="s-icon-em" style="background:rgba(0,102,122,.2)">📂</div><span>SharePoint</span></div>
+      </div>
+      <div class="tags-row"><span class="tag">Google Workspace</span><span class="tag">Zoom</span><span class="tag">Calendar Mgmt</span><span class="tag">SharePoint</span><span class="tag">OneDrive</span></div>
+    </div>
+
+    <!-- Guest & Customer Relations -->
+    <div class="skill-card reveal reveal-delay-2">
+      <div class="skill-card-title">Guest &amp; Customer Relations</div>
+      <div class="skill-logos-row">
+        <div class="sli"><div class="s-icon-em" style="background:rgba(232,112,90,.15)">🌟</div><span>VIP</span></div>
+        <div class="sli"><div class="s-icon-em" style="background:rgba(0,102,122,.2)">💬</div><span>Comms</span></div>
+        <div class="sli"><div class="s-icon-em" style="background:rgba(184,221,227,.1)">🤝</div><span>Retention</span></div>
+        <div class="sli"><div class="s-icon-em" style="background:rgba(212,168,67,.12)">🏨</div><span>Hospitality</span></div>
+      </div>
+      <div class="tags-row"><span class="tag">Guest Relations</span><span class="tag">VIP Management</span><span class="tag">Complaint Resolution</span><span class="tag">Front Office</span><span class="tag">CRM</span></div>
+    </div>
+
+    <!-- Languages -->
+    <div class="skill-card reveal reveal-delay-3">
+      <div class="skill-card-title">Languages &amp; Soft Skills</div>
+      <div class="skill-logos-row">
+        <div class="sli"><div class="s-icon-em" style="font-size:1.3rem;width:36px;height:36px">🇬🇧</div><span>English</span></div>
+        <div class="sli"><div class="s-icon-em" style="font-size:1.3rem;width:36px;height:36px">🇰🇪</div><span>Kiswahili</span></div>
+        <div class="sli"><div class="s-icon-em" style="background:rgba(232,112,90,.12)">💡</div><span>Problem-Solving</span></div>
+        <div class="sli"><div class="s-icon-em" style="background:rgba(0,102,122,.2)">🌐</div><span>Cross-cultural</span></div>
+      </div>
+      <div class="tags-row"><span class="tag">English — Fluent</span><span class="tag">Kiswahili — Native</span><span class="tag">Adaptability</span><span class="tag">Team Leadership</span><span class="tag">Detail Oriented</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EDUCATION ═══ -->
+<section id="education" class="section-wrap foam">
+  <div class="edu-layout">
+    <div class="edu-left reveal">
+      <div class="chip">Academic Background</div>
+      <h2 class="section-heading" style="color:var(--ocean)">Education &amp;<br><span style="font-style:italic">Training</span></h2>
+      <p style="font-size:.97rem;font-weight:300;line-height:1.85;color:var(--wave);margin-top:1rem">Built on a strong foundation in Business Management and Hospitality — sharpened by real-world experience across five countries and four industries.</p>
+    </div>
+    <div class="edu-cards reveal reveal-delay-2">
+      <div class="edu-card">
+        <div class="edu-year-badge"><div class="edu-yr">2010</div><div class="edu-era">Grad</div></div>
+        <div><div class="edu-inst">Kenya Polytechnic University</div><div class="edu-deg">Business Management Diploma</div><div class="edu-period">Graduated 2010</div></div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-year-badge"><div class="edu-yr">2009</div><div class="edu-era">Cert</div></div>
+        <div><div class="edu-inst">Park Place Hotel Training Centre</div><div class="edu-deg">Certificate in Hospitality</div><div class="edu-period">Graduated 2009</div></div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-year-badge"><div class="edu-yr">2008</div><div class="edu-era">KCSE</div></div>
+        <div><div class="edu-inst">Ibubi Girls High School</div><div class="edu-deg">Kenya Certificate of Secondary Education</div><div class="edu-period">2005 – 2008</div></div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-year-badge"><div class="edu-yr">2004</div><div class="edu-era">KCPE</div></div>
+        <div><div class="edu-inst">Uhuru Primary School</div><div class="edu-deg">Kenya Certificate of Primary Education</div><div class="edu-period">1997 – 2004</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact" class="section-wrap dark">
+  <div class="contact-layout">
+    <div class="contact-left reveal">
+      <div class="chip light">Let's Connect</div>
+      <h2>Open to<br><span class="ital">Collaborations</span></h2>
+      <p class="contact-desc">Whether you're an NGO, financial institution, government body, or private sector partner looking to advance women's economic participation in the blue economy — or you need a strategic business development professional — let's talk.</p>
+      <a href="Jackline Imbuhila Amunga CV Resume_260422_154811.pdf" download class="dl-btn">
+        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+        Download Full CV
+      </a>
+    </div>
+    <div class="contact-items reveal reveal-delay-2">
+      <div class="ci"><div class="ci-icon">📞</div><div><div class="ci-label">Phone</div><a href="tel:+254727550556" class="ci-val">+254 727 550 556</a></div></div>
+      <div class="ci"><div class="ci-icon">✉️</div><div><div class="ci-label">Email</div><a href="mailto:c_amunga@yahoo.com" class="ci-val">c_amunga@yahoo.com</a></div></div>
+      <div class="ci">
+        <div class="ci-icon" style="background:#0a66c2;padding:0;overflow:hidden">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </div>
+        <div><div class="ci-label">LinkedIn</div><a href="https://www.linkedin.com/in/jackline-amunga-ab83a023" target="_blank" class="ci-val">linkedin.com/in/jackline-amunga-ab83a023</a></div>
+      </div>
+      <div class="ci"><div class="ci-icon">🌊</div><div><div class="ci-label">Making Waves Dashboard</div><a href="https://amungabrenda.github.io/making-waves-initiative-dashboard/" target="_blank" class="ci-val">amungabrenda.github.io/making-waves-initiative-dashboard</a></div></div>
+      <div class="ci"><div class="ci-icon">📍</div><div><div class="ci-label">Location</div><span class="ci-val">Mombasa, Kenya · Open to East Africa</span></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">Jackline Amunga</div>
+  <p>© 2025 · All Rights Reserved</p>
+  <p>Mombasa, Kenya · East Africa</p>
+</footer>
+
+<script>
+// Cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+  ring.style.left = e.clientX + 'px';
+  ring.style.top = e.clientY + 'px';
+});
+document.querySelectorAll('a,button,.pillar-card,.ach-item,.edu-card,.collab-card,.skill-card,.tl-entry').forEach(el => {
+  el.addEventListener('mouseenter', () => ring.classList.add('hov'));
+  el.addEventListener('mouseleave', () => ring.classList.remove('hov'));
+});
+
+// Nav scroll + active link
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+  const sections = document.querySelectorAll('section[id]');
+  let cur = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) cur = s.id; });
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + cur ? '#fff' : '';
+  });
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Close mobile nav on link click
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('navlinks').classList.remove('open'));
+});
+</script>
+</body>
+</html>
